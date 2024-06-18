@@ -8,7 +8,7 @@ import "./Posts.css";
 function Posts() {
   const { products } = useContext(ProductContext);
 
-  const sortedProducts = [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  // const sortedProducts = [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <>
@@ -17,7 +17,7 @@ function Posts() {
         </div>
         <br />
         <div className="cards">
-          {sortedProducts.map((product, i) => (
+          {products.map((product, i) => (
             <Link
               key={product.id}
               to={`/product-details/${i}`}

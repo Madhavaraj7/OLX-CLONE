@@ -7,6 +7,7 @@ import {collection, addDoc} from 'firebase/firestore'
 import { useNavigate } from "react-router-dom";
 
 
+
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {

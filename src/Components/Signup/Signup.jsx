@@ -3,6 +3,8 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import Logo from '../../olx-logo.png';
+import toast, { Toaster } from "react-hot-toast";
+
 import './Signup.css';
 
 export default function Signup() {
@@ -21,10 +23,13 @@ export default function Signup() {
     let res = await signUp(userName, Email, phone, Password);
 
     if (res.success) {
-      console.log("signup successful");
+      // console.log("signup successful");
+      toast.success("signup successfull");
+
     } else {
       setLoading(false);
-      console.log("something went wrong");
+      toast.error("something went wrong");
+      // console.log("something went wrong");
     }
   };
 
@@ -37,6 +42,8 @@ export default function Signup() {
     <div>
       <div className="signupParentDiv">
         <img width="200px" height="200px" src={Logo} alt="Logo" />
+        <Toaster />
+
         <form onSubmit={handleSubmit}>
           <label htmlFor="fname">Username</label>
           <input
